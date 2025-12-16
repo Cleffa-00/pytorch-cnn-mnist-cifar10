@@ -13,6 +13,12 @@ A clean, modular PyTorch implementation of Convolutional Neural Networks for ima
 | CIFAR-10  | CIFAR10Net  | 288K       | **90.49%**    | ~13 min (GPU) |
 | MNIST     | MNISTNet    | 241K       | **99.70%**    | ~6 min (GPU)  |
 
+### Sample Predictions
+
+![CIFAR-10 Demo](assets/cifar10_demo.png)
+
+![MNIST Demo](assets/mnist_demo.png)
+
 ### Per-Class Accuracy
 
 <details>
@@ -101,16 +107,41 @@ python train_mnist.py --epochs 30
 python train_cifar.py --epochs 100 --batch-size 256 --lr 0.1 --data-dir ./data
 ```
 
+### Quick Inference Demo
+
+Run predictions without training (uses pre-trained weights):
+```bash
+python predict.py
+```
+
+Output:
+```
+🚀 PyTorch CNN Inference Demo
+
+==================================================
+🖼️  CIFAR-10 Inference Demo
+==================================================
+✅ Model loaded on cuda
+
+📊 Predictions on random test images:
+
+  ✓ Predicted: Car 🚗       | Actual: Car 🚗
+  ✓ Predicted: Ship 🚢      | Actual: Ship 🚢
+  ✓ Predicted: Frog 🐸      | Actual: Frog 🐸
+  ...
+```
+
 ## 📁 Project Structure
 ```
 pytorch-cnn-mnist-cifar10/
 ├── models/
 │   ├── __init__.py
 │   └── cnn.py              # CNN architectures
-├── checkpoints/            # Saved models (.pth)
-├── data/                   # Downloaded datasets
+├── checkpoints/            # Saved models (.pth) - auto-created on training
+├── data/                   # Downloaded datasets - auto-created on first run
 ├── train_cifar.py          # CIFAR-10 training
 ├── train_mnist.py          # MNIST training
+├── predict.py              # Quick inference demo
 ├── requirements.txt
 ├── .gitignore
 └── README.md

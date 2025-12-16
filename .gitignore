@@ -8,8 +8,6 @@ venv/
 .env
 
 # PyTorch
-checkpoints/
-*.pth
 *.pt
 
 # Jupyter
